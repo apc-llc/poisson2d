@@ -1,10 +1,10 @@
-# A solver for 2D Poisson problem with Dirichlet or Neumann boundary conditions
+## A solver for 2D Poisson problem with Dirichlet or Neumann boundary conditions
 
-## Building
+### Building
 
 Two possible library backends for FFT are supported: FFTW and FFTW-compatible interfaces of Intel MKL.
 
-### FFTW
+#### FFTW
 
 ```
 $ mkdir build_fftw
@@ -12,7 +12,7 @@ $ cd build_fftw
 $ cmake -DHAVE_FFTW=ON ..
 ```
 
-### MKL
+#### MKL
 
 ```
 $ mkdir build_mkl
@@ -20,7 +20,7 @@ $ cd build_mkl
 $ cmake -DHAVE_FFTW_MKL=ON -DHAVE_FFTW_MKL_HEADER=/opt/intel/composer_xe_2013.3.163/mkl/include/fftw/ -DHAVE_FFTW_MKL_THREADS_LIBRARY=/opt/intel/composer_xe_2013.3.163/mkl/lib/intel64/ ..
 ```
 
-## Test run
+### Test run
 
 ```
 $ ./poisson2d_fft 4094 4094
@@ -35,14 +35,13 @@ Solver ncores = 1
 
 Init time = 1.032101
 Solver time = 0.902502
-Solver gflops = 0.557385
 residual min = -0.025945, max = 0.025945, sum = 0.000104
 Check time = 1.060190
 Output time = 0.148881
 Deinit time = 0.008483
 ```
 
-## Visualize with GrADS
+### Visualize with GrADS
 
 ```
 $ perl ./poisson2d_fft_phi1.pl 
