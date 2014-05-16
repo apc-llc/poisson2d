@@ -1,0 +1,8 @@
+FFTW:
+
+cmake -DHAVE_FFTW=ON ..
+
+
+MKL:
+
+cmake -DHAVE_FFTW_MKL=ON -DHAVE_FFTW_MKL_HEADER=/opt/intel/composer_xe_2013.3.163/mkl/include/fftw/ -DHAVE_FFTW_MKL_THREADS_LIBRARY=/opt/intel/composer_xe_2013.3.163/mkl/lib/intel64/ ..
