@@ -79,3 +79,8 @@ Warning:  Y axis labels overridden by SET YAXIS.
    Labels may not reflect correct scaling for dimensions or data.
 ```
 
+Check out the output PNG images for reference and numerical solutions:
+
+![poisson2d_fft_phi1_0000.png](images/poisson2d_fft_phi1_0000.png)
+![poisson2d_fft_phi2_0000.png](images/poisson2d_fft_phi2_0000.png)
+
