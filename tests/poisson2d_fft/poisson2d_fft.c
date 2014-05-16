@@ -118,23 +118,11 @@ int main(int argc, char* argv[])
 	
 	if (argc != 3) USAGE();
 
-#ifdef HAVE_COACCEL
-	char* ndevices = getenv("COACCEL_NUM_DEVICES");
-	if (ndevices)
-		printf("Solver ndevices = %d %s\n\n", atoi(ndevices),
-			"(COACCEL)");
-	else
-	{
-		printf("Solver ndevices = 1 %s\n\n",
-			"(COACCEL)");
-	}
-#else
 	char* nthreads = getenv("OMP_NUM_THREADS");
 	if (nthreads)
-		printf("Solver ncores = %d\n\n", atoi(nthreads));
+		printf("Solver nthreads = %d\n\n", atoi(nthreads));
 	else
-		printf("Solver ncores = 1\n\n");
-#endif
+		printf("Solver nthreads = 1\n\n");
 	
 	int m = atoi(argv[1]), n = atoi(argv[2]);
 	if ((m <= 0) || (n <= 0)) USAGE();
@@ -177,9 +165,6 @@ int main(int argc, char* argv[])
 		breeze2d_get_time_diff(start, finish);
 	printf("Solver time = %f\n", solver_time);
 	
-	printf("Solver gflops = %f\n",
-		breeze2d_poisson_flops(solver) / solver_time * 1e-9);
-
 	breeze2d_get_time(&start);
 
 	solution(m, n, hx, hy, phi2);

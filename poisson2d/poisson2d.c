@@ -94,21 +94,3 @@ void breeze2d_poisson_solve(breeze2d_poisson_solver desc)
 		breeze2d_set_error(BREEZE2D_UNDEFINED_POISSION_SOLVER_METHOD);
 	}
 }
-
-// Count the number of floating-point operations
-// used by the specified solver configuration.
-double breeze2d_poisson_flops(breeze2d_poisson_solver desc)
-{
-	struct breeze2d_poisson_solver_t* solver =
-		(struct breeze2d_poisson_solver_t*)desc;
-
-	switch (solver->mode)
-	{
-	case BREEZE2D_POISSON_SOLVER_FFT :
-		return poisson2d_fft_flops((poisson2d_fft_solver)solver->desc);
-	default :
-		breeze2d_set_error(BREEZE2D_UNDEFINED_POISSION_SOLVER_METHOD);
-		return 0;
-	}
-}
-

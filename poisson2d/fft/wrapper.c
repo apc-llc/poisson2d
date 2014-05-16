@@ -221,16 +221,3 @@ void fft_free(void* desc)
 	FFTW(free(desc));
 #endif
 }
-
-// Count the number of floating-point operations
-// used by the specified plan.
-double fft_flops(fft_plan* plan)
-{
-	double base = plan->howmany * 
-		plan->n * log(plan->n) / log(2.0);
-#if defined(HAVE_FFTW) || defined(HAVE_FFTW_MKL)
-	// TODO: update FLOPS for RODFT
-	return 2.5 * base;
-#endif
-}
-

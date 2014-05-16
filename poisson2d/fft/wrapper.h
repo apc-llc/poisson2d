@@ -99,9 +99,5 @@ void* fft_malloc(size_t size);
 // Release data array previously allocated with fft_malloc.
 void fft_free(void* desc);
 
-// Count the number of floating-point operations
-// used by the specified plan.
-double fft_flops(fft_plan* plan);
-
 #endif // FFT_WRAPPER_H
 

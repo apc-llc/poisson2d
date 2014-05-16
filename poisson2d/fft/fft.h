@@ -65,9 +65,5 @@ void poisson2d_fft_solver_dispose(poisson2d_fft_solver desc);
  */
 void poisson2d_fft_solve(poisson2d_fft_solver desc);
 
-// Count the number of floating-point operations
-// used by the specified solver.
-double poisson2d_fft_flops(poisson2d_fft_solver desc);
-
 #endif // FFT_H
 

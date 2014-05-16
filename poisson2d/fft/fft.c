@@ -152,26 +152,3 @@ void poisson2d_fft_solve(poisson2d_fft_solver desc)
 	// on 3-diagonal systems solutions.
 	fft_inverse(solver->plan_main);
 }
-
-// Count the number of floating-point operations
-// used by the specified solver.
-double poisson2d_fft_flops(poisson2d_fft_solver desc)
-{
-	struct poisson2d_fft_solver_t* solver =
-		(struct poisson2d_fft_solver_t*)desc;
-	
-	double flops;
-	
-	// Account right hand side forward and inverse
-	// transforms.
-	flops += fft_flops(solver->plan_main);
-	
-	// Account boundary conditions forward transforms.
-	flops += fft_flops(solver->plan_bc);
-	flops += fft_flops(solver->plan_ec);
-
-	// TODO: account shutter flops?
-	
-	return flops;
-}
-

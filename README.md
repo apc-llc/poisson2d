@@ -31,7 +31,7 @@ Lx = f in D, phi = g on dD.
 
 Method: 1d fft + shutter
 
-Solver ncores = 1
+Solver nthreads = 1
 
 Init time = 1.032101
 Solver time = 0.902502
